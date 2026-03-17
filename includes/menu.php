@@ -2,35 +2,45 @@
      PAGE 3: MENU
 ═══════════════════════════════════════ -->
 <div id="page-menu" class="page">
-  <div class="menu-topbar">
-    <div class="welcome">Welcome, <span id="welcome-name">Guest</span></div>
-    <div class="topbar-icons">
-      <button class="topbar-icon-btn" onclick="nav('cart')"><span class="icon">🛒</span>Cart<span class="badge-dot" id="cart-dot" style="display:none;"></span></button>
-      <button class="topbar-icon-btn"><span class="icon">🔍</span>Search</button>
-      <button class="topbar-icon-btn"><span class="icon">🏷</span>Offer</button>
-      <button class="topbar-icon-btn"><span class="icon">💬</span>Contact Us</button>
-      <button class="topbar-icon-btn" onclick="currentUser?nav('auth'):nav('auth')"><span class="icon">👤</span>Account</button>
+  <nav class="menu-topbar">
+    <div class="topbar-left">
+      <button class="nav-logo-btn" onclick="nav('landing')">
+        <div class="nav-logo">KIIT<span>KAFE</span></div>
+      </button>
+      <div class="topbar-divider"></div>
+      <div class="top-addr">
+        <span class="location-icon">📍</span>
+        <span>Campus 25, Patia, Bhubaneswar</span>
+      </div>
     </div>
-  </div>
+
+    <div class="topbar-search">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="menu-search" type="text" id="menu-search-input" placeholder="Search for your favorite food..." oninput="filterMenuItems()">
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="user-info">
+        <span class="welcome-text">Hi, <span id="welcome-name">Guest</span></span>
+      </div>
+      <div class="topbar-actions">
+        <button class="action-btn" onclick="nav('cart')">
+          <span class="action-icon">🛒</span>
+          <span class="action-label">Cart</span>
+          <span class="badge-dot" id="cart-dot" style="display:none;"></span>
+        </button>
+        <button class="action-btn" onclick="showAccountMenu()">
+          <span class="action-icon">👤</span>
+          <span class="action-label">Account</span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
   <div class="menu-hero-bar">
     <h1>ORDER AHEAD. SKIP THE QUEUE.<br><span>ENJOY AT KIIT KAFE...</span></h1>
-    <div class="location-bar">
-      <div class="location-info">
-        <div class="loc-logo">🏫</div>
-        <div class="loc-text">
-          <div class="name">Campus 25, KIIT University</div>
-          <div class="addr">Patia, Bhubaneswar</div>
-        </div>
-      </div>
-      <div class="search-row">
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input class="menu-search" type="text" id="menu-search-input" placeholder="Search for food items 'Coke'" oninput="filterMenuItems()">
-        </div>
-        <button class="my-acc-btn" onclick="nav('auth')">My Accounts</button>
-      </div>
-    </div>
   </div>
 
   <div class="categories-strip">
@@ -40,33 +50,46 @@
   <div class="menu-body">
     <div class="menu-grid-title">
       <span id="menu-section-label">Top rated for you</span>
-      <button class="sort-btn">Sort By ▼</button>
+      <div class="sort-wrapper">
+        <select class="sort-select" id="menu-sort" onchange="sortMenuItems(this.value)">
+          <option value="default">Sort By</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
     </div>
     <div class="items-grid" id="items-grid"></div>
   </div>
 
   <!-- FOOTER -->
-  <footer class="footer" style="margin-top:40px;">
+  <footer class="footer">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo">Kiit <span>Kafe</span></div>
-        <p>Since 2026</p>
+        <div class="logo">KIIT<span>KAFE</span></div>
+        <p>Your daily dose of caffeine and calm, served right on campus at KIIT University, Bhubaneswar.</p>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
-        <a>About Us</a><a>Swiggy Corporate</a><a>Careers</a><a>Team</a>
+        <h4>Quick Links</h4>
+        <a onclick="nav('menu')">Menu</a>
+        <a>About Us</a>
       </div>
       <div class="footer-col">
-        <h4>Help</h4>
-        <a>Feedback</a><a>FAQ's</a>
+        <h4>Account</h4>
+        <a onclick="nav('auth')">Login</a>
+        <a onclick="switchAuthTab('signup');nav('auth')">Sign Up</a>
       </div>
       <div class="footer-col">
-        <h4>My Accounts</h4>
-        <a>Campus 25, KIIT University</a><a>Patia, Bhubaneswar</a>
+        <h4>Visit Us</h4>
+        <a>Campus 25, KIIT University</a>
+        <a>7AM – 10PM Daily</a>
+        <a>kiit.kafe</a>
+        <a>+91 8809989535</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p style="color:var(--muted);">Developed By: <strong style="color:var(--lime);">Saurabh Sharma, Chinmay Kar, Shirsh Mohan, Debi Prasad, Kush Singh, Parthiv Datta</strong></p>
+      <p>© 2026 KIIT Kafe.</p>
+      <div class="dev-credit">Developed By: <strong>Saurabh Sharma, Chinmay Kar</strong><br><strong>Shirsh Mohan, Debi Prasad, Kush Singh, Parthiv Datta</strong></div>
     </div>
   </footer>
 </div>

@@ -27,34 +27,75 @@ function filterMenuItems() {
 }
 
 function renderMenuGrid() {
+  const grid = document.getElementById('items-grid');
+  if (MENU.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">Loading menu...</div>';
+    return;
+  }
+
   const q = document.getElementById('menu-search-input')?.value.toLowerCase() || '';
-  const filtered = MENU.filter(item => {
+  let filtered = MENU.filter(item => {
     const matchCat = activeCategory === 'All' || item.cat === activeCategory;
     const matchQ = !q || item.name.toLowerCase().includes(q) || item.sub.toLowerCase().includes(q);
     return matchCat && matchQ;
   });
-  const grid = document.getElementById('items-grid');
+
+  const sortVal = document.getElementById('menu-sort')?.value;
+  if (sortVal === 'price-low') filtered.sort((a,b) => a.price - b.price);
+  if (sortVal === 'price-high') filtered.sort((a,b) => b.price - a.price);
+  if (sortVal === 'rating') filtered.sort((a,b) => b.rating - a.rating);
+
   grid.innerHTML = filtered.map(item => {
     const inCart = cart.find(c => c.id === item.id);
     const imgHtml = item.img
       ? `<img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
       : '';
-    return `<div class="item-card">
+
+    const isOutOfStock = parseInt(item.stock) <= 0;
+    const isPopular = parseInt(item.popularity) > 10; // Mark as popular if ordered more than 10 times
+
+    let qtyControls = '';
+    if (isOutOfStock) {
+      qtyControls = `<button class="add-btn out-of-stock" disabled>OUT OF STOCK</button>`;
+    } else if (inCart) {
+      qtyControls = `<div class="menu-qty-pill">
+          <button onclick="changeMenuQty(${item.id},-1)">−</button>
+          <span class="qty-num">${inCart.qty}</span>
+          <button onclick="changeMenuQty(${item.id},1)">+</button>
+        </div>`;
+    } else {
+      qtyControls = `<button class="add-btn" onclick="addToCartById(${item.id})">ADD +</button>`;
+    }
+
+    return `<div class="item-card ${isOutOfStock ? 'disabled' : ''}">
       <div class="item-img">
         ${imgHtml}
         <span style="display:${item.img?'none':'flex'};font-size:52px;">${item.emoji}</span>
-        ${item.rating ? `<div class="rating-badge">⭐ ${item.rating}</div>` : ''}
-        <div class="time-badge">⏱ ${item.time}</div>
+        ${isPopular ? `<div class="popular-badge">🔥 Popular</div>` : ''}
       </div>
       <div class="item-body">
         <div class="item-name">${item.name}</div>
         <div class="item-sub">${item.sub}</div>
         <div class="item-footer">
           <div class="item-price">₹${item.price}</div>
-          <button class="add-btn ${inCart?'added':''}" onclick="addToCartById(${item.id})">${inCart?'✓':'+'}</button>
+          ${qtyControls}
         </div>
       </div>
     </div>`;
   }).join('');
   updateCartIndicators();
 }
+
+function sortMenuItems(val) {
+  renderMenuGrid();
+}
+
+function changeMenuQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  renderMenuGrid();
+  updateCartIndicators();
+}
+

@@ -5,10 +5,6 @@
   <nav class="navbar">
     <div class="nav-logo">KIIT<span>KAFE</span></div>
     <div class="nav-links">
-      <button class="nav-link active" onclick="nav('menu')">MENU</button>
-      <button class="nav-link">ABOUT</button>
-      <button class="nav-link">EVENTS</button>
-      <button class="nav-link">CONTACT</button>
     </div>
     <div class="nav-actions">
       <button class="btn-login" onclick="nav('auth')">Log In</button>
@@ -17,6 +13,15 @@
   </nav>
 
   <section class="hero">
+    <!-- Slideshow Background -->
+    <div class="hero-slideshow">
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
     <!-- Floating food -->
     <div class="food-float">🍕</div>
     <div class="food-float">🍔</div>
@@ -27,6 +32,14 @@
     <div class="food-float">🌮</div>
     <div class="food-float">🧁</div>
 
+    <!-- Rotating Messages -->
+    <div class="hero-messages">
+      <div class="hero-message active">☕ Freshly Brewed Coffee Every Morning</div>
+      <div class="hero-message">🥐 Hot & Crispy Snacks All Day</div>
+      <div class="hero-message">🎓 Special Student Discounts Available</div>
+      <div class="hero-message">🚀 Quick Service - Skip the Queue!</div>
+    </div>
+
     <div class="hero-tag">KIIT University's Favourite Café</div>
     <div class="hero-title">
       <span class="line1">KIIT</span>
@@ -35,7 +48,7 @@
     <p class="hero-sub">Where every sip tells a story. Fresh brews, wholesome bites, and good vibes — right in the heart of KIIT campus.</p>
     <div class="hero-cta">
       <button class="cta-primary" onclick="nav('menu')">Explore Menu</button>
-      <button class="cta-secondary" onclick="nav('menu')">Order Now →</button>
+      <button class="cta-secondary" onclick="nav('auth')">Order Now →</button>
     </div>
   </section>
 
@@ -65,19 +78,19 @@
       <button class="see-all-btn" onclick="nav('menu')">See All Menu →</button>
     </div>
     <div class="fan-grid">
-      <div class="fan-card" onclick="addToCartById(4);nav('menu')">
+      <div class="fan-card" onclick="nav('menu')">
         <div class="fan-img">☕</div>
         <div class="fan-body"><div class="fan-name">Signature Cold Brew</div><div class="fan-price">₹89</div></div>
       </div>
-      <div class="fan-card" onclick="addToCartById(6);nav('menu')">
+      <div class="fan-card" onclick="nav('menu')">
         <div class="fan-img">🥪</div>
         <div class="fan-body"><div class="fan-name">Classic Club Sandwich</div><div class="fan-price">₹120</div></div>
       </div>
-      <div class="fan-card" onclick="addToCartById(12);nav('menu')">
+      <div class="fan-card" onclick="nav('menu')">
         <div class="fan-img">🍰</div>
         <div class="fan-body"><div class="fan-name">Chocolate Truffle Cake</div><div class="fan-price">₹79</div></div>
       </div>
-      <div class="fan-card" onclick="addToCartById(3);nav('menu')">
+      <div class="fan-card" onclick="nav('menu')">
         <div class="fan-img">🧋</div>
         <div class="fan-body"><div class="fan-name">Matcha Latte</div><div class="fan-price">₹99</div></div>
       </div>
@@ -95,27 +108,23 @@
         <h4>Quick Links</h4>
         <a onclick="nav('menu')">Menu</a>
         <a>About Us</a>
-        <a>Events</a>
-        <a>Gallery</a>
       </div>
       <div class="footer-col">
         <h4>Account</h4>
         <a onclick="nav('auth')">Login</a>
         <a onclick="switchAuthTab('signup');nav('auth')">Sign Up</a>
-        <a>Order History</a>
-        <a>Loyalty Points</a>
       </div>
       <div class="footer-col">
         <h4>Visit Us</h4>
         <a>Campus 25, KIIT University</a>
         <a>7AM – 10PM Daily</a>
         <a>kiit.kafe</a>
-        <a>+91 98XXXXXXXX</a>
+        <a>+91 8809989535</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 KIIT Kafe. Since 2026.</p>
-      <div class="dev-credit">Developed By: <strong>Saurabh Sharma, Chinmay Kar</strong><br>Shirsh Mohan, Debi Prasad, Kush Singh, Parthiv Datta</div>
+      <p>© 2026 KIIT Kafe.</p>
+      <div class="dev-credit">Developed By: <strong>Saurabh Sharma, Chinmay Kar</strong><br><strong>Shirsh Mohan, Debi Prasad, Kush Singh, Parthiv Datta</strong></div>
     </div>
   </footer>
 </div>

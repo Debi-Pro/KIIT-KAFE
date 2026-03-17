@@ -1,8 +1,159 @@
----
-
 # KIIT Kafe - Campus 25 Ordering System
 
 This document outlines the architecture, flow, and database schema for the KIIT Kafe application. The application is designed to handle user ordering, cart management, checkout, and admin management for a campus cafe.
+
+---
+
+## 🚀 Quick Setup Guide (XAMPP)
+
+### Prerequisites
+- **XAMPP** installed (download from [https://www.apachefriends.org](https://www.apachefriends.org))
+- A web browser (Chrome, Firefox, Edge)
+
+---
+
+### Step 1: Install XAMPP
+1. Download XAMPP from the official website.
+2. Run the installer and install to the default location:
+   - **Windows:** `C:\xampp`
+3. Launch **XAMPP Control Panel**.
+
+---
+
+### Step 2: Start Services
+1. In XAMPP Control Panel, click **Start** next to **Apache**.
+2. Click **Start** next to **MySQL**.
+3. Both modules should show green "Running" status.
+
+---
+
+### Step 3: Set Up the Project (Two Methods)
+
+#### Method A: Copy to htdocs (Recommended for Beginners)
+
+1. Navigate to your XAMPP installation folder: `C:\xampp\htdocs\`
+2. Copy the entire `KIIT-KAFE` folder into `htdocs`.
+   - Final path should be: `C:\xampp\htdocs\KIIT-KAFE\`
+3. Open your browser and go to:
+   ```
+   http://localhost/KIIT-KAFE/
+   ```
+
+#### Method B: Run Directly from Current Location (Without Moving to htdocs)
+
+If you don't want to move the folder to `htdocs`, you can run the project directly from its current location using PHP's built-in server or by configuring a virtual host.
+
+1. Open **PowerShell** as Administrator.
+2. Navigate to the project directory:
+   ```cmd
+    mklink /D C:\xampp\htdocs\KIIT-KAFE C:\Users\KIIT0001\KIIT-KAFE
+   ```
+3. Open your browser and go to:
+   ```
+    http://localhost/KIIT-KAFE
+   ```
+
+
+---
+
+### Step 4: Create the Database
+
+#### Option A: Using phpMyAdmin (Recommended)
+
+1. Open your browser and go to:
+   ```
+   http://localhost/phpmyadmin
+   ```
+   (or `http://kiitkafe.local/phpmyadmin` if using virtual host)
+2. Click the **Import** tab at the top.
+3. Click **Choose File** and select `database.sql` from the project root.
+4. Click **Go** at the bottom to import.
+5. You should see `kiit_kaffe_db` database with all tables created.
+
+#### Option B: Using MySQL Command Line
+
+1. Open **Command Prompt**.
+2. Navigate to MySQL bin directory:
+   ```cmd
+   cd C:\xampp\mysql\bin
+   ```
+3. Run the SQL script:
+   ```cmd
+   mysql -u root -p < "C:\Users\KIIT0001\KIIT-KAFE\database.sql"
+   ```
+   (Press Enter when prompted for password - default is empty, just press Enter again)
+
+#### Option C: Using the Setup Script
+
+1. Ensure Apache and MySQL are running in XAMPP.
+2. Open your browser and navigate to:
+   ```
+   http://localhost/KIIT-KAFE/api/setup_db.php
+   ```
+   (Adjust URL based on your setup method)
+3. The script will automatically create the `kiit_kaffe_db` database and all required tables.
+
+---
+
+### Step 5: Verify Installation
+
+1. Open your browser and navigate to your project URL:
+   - **htdocs method:** `http://localhost/KIIT-KAFE/`
+   - **PHP server method:** `http://localhost:8000/`
+   - **Virtual host method:** `http://kiitkafe.local/`
+2. You should see the **Login Page**.
+3. The database should contain:
+   - **42 menu items** across 5 categories (Beverages, Coffee & Drinks, Snacks, Desserts, Meals)
+   - Default admin account (check `database.sql` for credentials)
+
+---
+
+### Step 6: Default Login Credentials
+
+**Admin Account:**
+- **Email:** `admin@kiitkafe.com`
+- **Password:** Check `database.sql` for the hashed password
+
+**Test User Account:**
+- You can create a new user account via the **Sign Up** page.
+
+---
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| **Apache won't start (Port 80 busy)** | Stop Skype/IIS or change Apache port to 8080 in XAMPP config |
+| **MySQL won't start (Port 3306 busy)** | Stop other MySQL services or change port in XAMPP MySQL config |
+| **404 Not Found** | Ensure folder is in `htdocs` or virtual host is configured correctly |
+| **Database connection error** | Check `api/db.php` for correct database credentials (default: root, no password) |
+| **Blank page / White screen** | Enable error reporting in `php.ini` or check Apache error logs |
+| **Permission denied** | Run XAMPP Control Panel as Administrator |
+
+---
+
+## 📋 Project Structure
+
+```
+KIIT-KAFE/
+├── index.php              # Main entry point (Login/Home)
+├── database.sql           # Database schema and sample data
+├── README.md              # This file
+├── .htaccess              # Apache configuration
+├── api/                   # Backend API endpoints
+│   ├── db.php             # Database connection
+│   ├── create_order.php   # Order creation
+│   ├── get_orders.php     # Fetch orders
+│   ├── admin_menu_actions.php
+│   └── ...
+├── admin_files/           # Admin panel pages
+│   └── dashboard.php
+├── css/                   # Stylesheets
+├── js/                    # JavaScript files
+└── includes/              # Reusable PHP components
+```
+
+---
 
 ## 1. Overall Project Architecture & Application Flow
 

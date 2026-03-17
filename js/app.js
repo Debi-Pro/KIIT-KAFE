@@ -1,26 +1,7 @@
 /* ═══════════════════════════════════════════
-   DATA STORE
+   DATA STORE & FUNCTIONS
 ═══════════════════════════════════════════ */
-const MENU = [
-  {id:1, name:'Coca Cola', sub:'400ml', price:40, cat:'Beverages', emoji:'🥤', rating:4.3, time:'5 min', img:'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=300&q=80'},
-  {id:2, name:'Cold Coffee', sub:'200ml', price:89, cat:'Coffee & Drinks', emoji:'☕', rating:4.5, time:'8 min', img:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80'},
-  {id:3, name:'Matcha Latte', sub:'200ml', price:99, cat:'Coffee & Drinks', emoji:'🍵', rating:4.4, time:'5 min', img:'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=300&q=80'},
-  {id:4, name:'Signature Cold Brew', sub:'300ml', price:89, cat:'Coffee & Drinks', emoji:'☕', rating:4.7, time:'5 min', img:'https://images.unsplash.com/photo-1481833761820-0509d3217039?w=300&q=80'},
-  {id:5, name:'Amul Cool', sub:'200ml', price:30, cat:'Beverages', emoji:'🥛', rating:4.2, time:'3 min', img:'https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=300&q=80'},
-  {id:6, name:'Club Sandwich', sub:'Classic', price:120, cat:'Snacks', emoji:'🥪', rating:4.3, time:'10 min', img:'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80'},
-  {id:7, name:'Lay\'s Chile', sub:'Chips', price:20, cat:'Snacks', emoji:'🍟', rating:4.1, time:'2 min', img:'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&q=80'},
-  {id:8, name:'Cadbury Chocolate', sub:'Dairy Milk', price:49, cat:'Snacks', emoji:'🍫', rating:4.6, time:'2 min', img:'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=300&q=80'},
-  {id:9, name:'Amul Chhas', sub:'200ml', price:25, cat:'Beverages', emoji:'🥛', rating:4.0, time:'3 min', img:''},
-  {id:10, name:'Donut', sub:'Oval Shape', price:45, cat:'Snacks', emoji:'🍩', rating:4.4, time:'5 min', img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&q=80'},
-  {id:11, name:'Pizza', sub:'4.2★ • 15 min', price:199, cat:'Hot Dogs', emoji:'🍕', rating:4.2, time:'15 min', img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&q=80'},
-  {id:12, name:'Chocolate Truffle Cake', sub:'Slice', price:79, cat:'Snacks', emoji:'🍰', rating:4.5, time:'5 min', img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&q=80'},
-  {id:13, name:'KFC', sub:'4.3★ • 30 min', price:249, cat:'Hot Dogs', emoji:'🍗', rating:4.3, time:'30 min', img:'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=300&q=80'},
-  {id:14, name:'Patties', sub:'4.2★ • 10 min', price:89, cat:'Biryani', emoji:'🫓', rating:4.2, time:'10 min', img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&q=80'},
-  {id:15, name:'Nescafe Coffee', sub:'200ml', price:60, cat:'Coffee & Drinks', emoji:'☕', rating:4.3, time:'5 min', img:'https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=300&q=80'},
-  {id:16, name:'Wafers', sub:'Assorted', price:30, cat:'Wafers', emoji:'🍪', rating:4.0, time:'2 min', img:''},
-  {id:17, name:'Hot Dog', sub:'Classic', price:89, cat:'Hot Dogs', emoji:'🌭', rating:4.2, time:'8 min', img:'https://images.unsplash.com/photo-1612392062422-7f3bf5a0ffe6?w=300&q=80'},
-  {id:18, name:'Chicken Biryani', sub:'Full Plate', price:180, cat:'Biryani', emoji:'🍛', rating:4.5, time:'20 min', img:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=300&q=80'},
-];
+let MENU = [];
 
 const CATS = ['All','Beverages','Wafers','Snacks','Coffee & Drinks','Hot Dogs','Biryani'];
 const CAT_EMOJI = {All:'🌟',Beverages:'🥤',Wafers:'🍪',Snacks:'🍟','Coffee & Drinks':'☕','Hot Dogs':'🌭',Biryani:'🍛'};
@@ -31,19 +12,162 @@ let selectedPayMethod = 'upi';
 let currentOrderId = '';
 let discount = 0;
 let activeCategory = 'All';
+let statusPollInterval = null;
+let orderTrackingInterval = null;
+
+async function fetchMenuData() {
+  try {
+    const res = await fetch('api/menu.php');
+    const data = await res.json();
+    MENU = data;
+    if (document.getElementById('page-menu').classList.contains('active')) {
+      renderMenu();
+    }
+  } catch (err) {
+    console.error("Error fetching menu:", err);
+  }
+}
+
+// Initial fetch
+fetchMenuData();
 
 /* ═══════════════════════════════════════════
-   NAVIGATION
+   HERO SLIDESHOW
 ═══════════════════════════════════════════ */
-function nav(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+let slideshowInterval = null;
+let messageInterval = null;
+
+function initHeroSlideshow() {
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  const messages = document.querySelectorAll('.hero-message');
+  
+  if (slides.length === 0) return;
+  
+  let currentSlide = 0;
+  let currentMessage = 0;
+  
+  // Change slide every 5 seconds
+  slideshowInterval = setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 5000);
+  
+  // Change message every 3 seconds
+  messageInterval = setInterval(() => {
+    messages[currentMessage].classList.remove('active');
+    currentMessage = (currentMessage + 1) % messages.length;
+    messages[currentMessage].classList.add('active');
+  }, 3000);
+}
+
+// Initialize slideshow on page load
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroSlideshow();
+  const startPage = window.initialPage || 'landing';
+  nav(startPage, false);
+});
+
+// Clear intervals when navigating away
+const originalNav = nav;
+// Note: nav is defined later, so we'll handle cleanup in nav function
+
+/* ═══════════════════════════════════════════
+   NAVIGATION & ROUTING
+═══════════════════════════════════════════ */
+
+// Handle Browser History
+window.addEventListener('popstate', (e) => {
+  const page = e.state?.page || 'landing';
+  nav(page, false); // false = don't push state again
+});
+
+function nav(page, push = true) {
   const el = document.getElementById('page-' + page);
-  el.classList.add('active');
+  if (!el) {
+    console.warn(`Page "${page}" not found, falling back to landing`);
+    page = 'landing';
+  }
+
+  // Clear intervals when navigating away from certain pages
+  if (page !== 'landing' && slideshowInterval) {
+    clearInterval(slideshowInterval);
+    clearInterval(messageInterval);
+  }
+  if (page !== 'success' && orderTrackingInterval) {
+    clearInterval(orderTrackingInterval);
+    orderTrackingInterval = null;
+  }
+  if (page !== 'payment' && statusPollInterval) {
+    clearInterval(statusPollInterval);
+    statusPollInterval = null;
+  }
+
+  // Update UI
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
   window.scrollTo(0,0);
-  if (page === 'menu') renderMenu();
+
+  // Update URL
+  if (push) {
+    const url = page === 'landing' ? '/KIIT-KAFE/' : `/KIIT-KAFE/${page}`;
+    history.pushState({ page }, '', url);
+  }
+
+  // Page specific logic
+  if (page === 'menu') {
+    if (MENU.length === 0) {
+      fetchMenuData().then(() => renderMenu());
+    } else {
+      renderMenu();
+    }
+  }
   if (page === 'cart') renderCart();
   if (page === 'payment') renderPaymentPage();
+  if (page === 'success') {
+      const lastId = sessionStorage.getItem('lastOrderId');
+      const meta = JSON.parse(sessionStorage.getItem('lastOrderMeta') || '{}');
+      const items = JSON.parse(sessionStorage.getItem('lastOrderItems') || '[]');
+
+      if (meta.orderCode) {
+          document.getElementById('suc-order-num').textContent = meta.orderCode;
+          document.getElementById('suc-date').textContent = meta.date;
+          document.getElementById('suc-pay').textContent = meta.payMethod;
+          document.getElementById('suc-name').textContent = meta.name;
+          document.getElementById('suc-email').textContent = meta.email;
+          document.getElementById('suc-phone').textContent = meta.phone;
+          document.getElementById('suc-addr').textContent = meta.addr;
+          document.getElementById('success-total').textContent = '₹' + meta.total;
+
+          // Restore items
+          document.getElementById('success-items-list').innerHTML = items.map(item => `
+            <div class="os-inv-item">
+              <div class="os-inv-emoji">
+                ${item.img ? `<img src="${item.img}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" onerror="this.parentNode.textContent='${item.emoji}'">` : item.emoji}
+              </div>
+              <div class="os-inv-info"><div class="os-inv-name">${item.name}</div><div class="os-inv-desc">${item.sub}</div></div>
+              <div class="os-inv-qty">X${item.qty}<br><span style="font-weight:400;font-size:9px;">unit</span></div>
+              <div class="os-inv-price">₹${item.price * item.qty}</div>
+            </div>
+          `).join('');
+      }
+      if (lastId) startOrderTracking(lastId);
+  }
+  if (page === 'admin') {
+      if (!currentUser || !currentUser.isAdmin) {
+          toast("🚫 Admin access required");
+          nav('auth');
+          return;
+      }
+      switchAdminTab('dash');
+  }
 }
+
+// Initialize on load - already handled in slideshow section
+// document.addEventListener('DOMContentLoaded', () => {
+//   const startPage = window.initialPage || 'landing';
+//   nav(startPage, false);
+// });
 
 /* ═══════════════════════════════════════════
    UTILS

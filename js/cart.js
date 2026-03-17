@@ -92,3 +92,44 @@ function applyCoupon() {
 }
 
 function showCouponModal() { document.getElementById('coupon-modal').classList.add('show'); }
+
+function validateCartAndCheckout() {
+  if (cart.length === 0) {
+    toast('🛒 Your cart is empty');
+    return false;
+  }
+  
+  return fetch("api/validate_cart.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cart_items: cart })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "success") {
+      nav('payment');
+      return true;
+    } else {
+      // Show specific error messages
+      if (data.errors && data.errors.length > 0) {
+        const errorMsg = data.errors.map(e => {
+          const item = cart.find(c => c.id === e.id);
+          return item ? `${item.name}: ${e.message}` : e.message;
+        }).join('; ');
+        toast('⚠️ ' + errorMsg);
+      } else {
+        toast('⚠️ ' + (data.message || 'Cart validation failed'));
+      }
+      return false;
+    }
+  })
+  .catch(err => {
+    console.error("Cart validation error:", err);
+    toast('❌ Unable to validate cart');
+    return false;
+  });
+}
+
+function handleCheckout() {
+  validateCartAndCheckout();
+}

@@ -6,7 +6,7 @@
     <button class="back-home-pill" onclick="nav('landing')">←</button>
     <div class="success-check">✓</div>
     <h1>Payment Done Successfully</h1>
-    <p>We have received your order will be prepared in 10-15 min.<br>Your order number is <strong id="suc-order-num">#10204D</strong></p>
+    <p>We have received your order will be prepared in 10-15 min.<br>Your order number is <strong id="suc-order-num">#000000</strong></p>
     <div class="success-meta-pill">
       <div class="smeta-item">Payment Status : <span>Successful</span></div>
       <div class="smeta-item">Order Status : <span>Preparing</span></div>
@@ -20,19 +20,21 @@
       <!-- LEFT -->
       <div>
         <div class="track-card">
-          <div class="track-title">Order Status : <span style="color:#f59e0b;">Preparing ...</span></div>
-          <div class="preparing-badge">Preparing</div>
-          <p class="track-desc">We have accepted your order, we're getting it ready. A confirmation details has been sent to your mobile.</p>
+          <div class="track-title">Order Status : <span id="track-status-text" style="color:#f59e0b;">Preparing ...</span></div>
+          <div class="preparing-badge" id="track-status-badge">Preparing</div>
+          <div class="estimated-time-box" id="estimated-time-box">
+            <span class="et-label">⏱ Estimated Time</span>
+            <span class="et-value" id="estimated-time">10-15 min</span>
+          </div>
+          <p class="track-desc" id="track-status-desc">We have accepted your order, we're getting it ready. A confirmation details has been sent to your mobile.</p>
           <div class="progress-steps">
-            <div class="ps-step"><div class="ps-dot done">✓</div><div class="ps-label">Placed</div></div>
-            <div class="ps-line done"></div>
-            <div class="ps-step"><div class="ps-dot done">✓</div><div class="ps-label">Confirmed</div></div>
-            <div class="ps-line done"></div>
-            <div class="ps-step"><div class="ps-dot active">🍳</div><div class="ps-label">Preparing</div></div>
-            <div class="ps-line"></div>
-            <div class="ps-step"><div class="ps-dot">🛵</div><div class="ps-label">On Way</div></div>
-            <div class="ps-line"></div>
-            <div class="ps-step"><div class="ps-dot">✓</div><div class="ps-label">Delivered</div></div>
+            <div class="ps-step" id="step-placed"><div class="ps-dot done">✓</div><div class="ps-label">Placed</div></div>
+            <div class="ps-line" id="line-1"></div>
+            <div class="ps-step" id="step-confirmed"><div class="ps-dot">✓</div><div class="ps-label">Confirmed</div></div>
+            <div class="ps-line" id="line-2"></div>
+            <div class="ps-step" id="step-preparing"><div class="ps-dot">🍳</div><div class="ps-label">Preparing</div></div>
+            <div class="ps-line" id="line-3"></div>
+            <div class="ps-step" id="step-completed"><div class="ps-dot">✅</div><div class="ps-label">Completed</div></div>
           </div>
         </div>
         <div class="customer-card">

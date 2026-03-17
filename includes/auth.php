@@ -5,6 +5,7 @@
   <div class="auth-bg-left">🍔</div>
   <div class="auth-bg-right">🥤</div>
   <div class="auth-card">
+    <button class="back-auth" onclick="nav('landing')">← Back to Home</button>
     <div class="auth-tabs">
       <button class="auth-tab-btn active" id="tab-login" onclick="switchAuthTab('login')">↩ Login</button>
       <button class="auth-tab-btn" id="tab-signup" onclick="switchAuthTab('signup')">📋 Sign Up</button>
@@ -29,16 +30,6 @@
         </div>
       </div>
       <button class="btn-login-main" onclick="doLogin()">Log In</button>
-      <div class="auth-divider"><span>OR</span></div>
-      <button class="btn-social" onclick="doSocialLogin('Google')">
-        <span style="font-size:18px;">G</span> Continue with Google
-      </button>
-      <button class="btn-social" onclick="doSocialLogin('Phone')">
-        <span>📞</span> Continue with Phone
-      </button>
-      <div style="text-align:center;margin-top:14px;font-size:12px;color:rgba(255,255,255,0.5);">
-        Admin? <button style="color:var(--lime);font-weight:800;font-size:12px;" onclick="doAdminLogin()">Admin Login →</button>
-      </div>
     </div>
 
     <!-- SIGNUP -->

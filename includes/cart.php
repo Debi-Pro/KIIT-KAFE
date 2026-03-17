@@ -52,7 +52,7 @@
               <div class="nc-sub">Partner will safely place the order outside your door (not for COD)</div>
             </div>
           </div>
-          <button class="total-charge-btn" onclick="nav('payment')">
+          <button class="total-charge-btn" onclick="handleCheckout()">
             <span>Total Charge</span>
             <span class="amt" id="bill-total">₹0</span>
           </button>
