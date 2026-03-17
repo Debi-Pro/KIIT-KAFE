@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "kiit_kafe";
+$db = "kiit_kaffe_db";
 
 $conn = new mysqli($host,$user,$pass,$db);
 
