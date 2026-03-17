@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php 
-$base = (strpos($_SERVER["REQUEST_URI"], "KIIT-KAFE") !== false) ? "/KIIT-KAFE/": "/"; 
-?>
-
-    <base href="<?= $base ?>">
+<base href="/KIIT-KAFE/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIIT KAFE — Campus 25</title>
