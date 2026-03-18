@@ -90,12 +90,12 @@ INSERT INTO foods (name, description, price, category, image_url) VALUES
 ('Club Sandwich', 'Veg Grilled Sandwich', 120.00, 'Snacks', 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80'),
 ('Pizza', '7-inch Cheese Pizza', 199.00, 'Snacks', 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&q=80'),
 -- Additional Beverages
-('Pepsi', '400ml Cold Bottle', 40.00, 'Beverages', 'https://unsplash.com/photos/blue-and-red-pepsi-can-eEumkKjg7Jo?w=300&q=80'),
-('Sprite', '400ml Cold Bottle', 40.00, 'Beverages', 'https://unsplash.com/photos/a-can-of-sprite-on-a-wooden-stand-with-limes-RH2ZA73kHiA?w=300&q=80'),
-('Fanta', '400ml Cold Bottle', 40.00, 'Beverages', 'https://unsplash.com/photos/fanta-orange-can-on-brown-wooden-table-aKYu-H5pHJY?w=300&q=80'),
-('Mineral Water', '1L Kinley', 20.00, 'Beverages', 'https://unsplash.com/photos/a-close-up-of-a-bottle-of-water-0_he2akLhyA?w=300&q=80'),
-('Fresh Lime Soda', 'Sweet & Tangy', 50.00, 'Beverages', 'https://unsplash.com/photos/glass-of-cucumber-soda-drink-on-wooden-table-summer-healthy-detox-infused-water-lemonade-or-cocktail-background-low-alcohol-nonalcoholic-drinks-super-food-vegetarian-or-healthy-diet-concept-8sttKwOr6wE?w=300&q=80'),
-('Mango Lassi', 'Traditional Yogurt Drink', 60.00, 'Beverages', 'https://unsplash.com/photos/mango-and-lemon-juice-lw8GflbJwLc?w=300&q=80'),
+('Pepsi', '400ml Cold Bottle', 40.00, 'Beverages', 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?q=80&w=929&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Sprite', '400ml Cold Bottle', 40.00, 'Beverages', 'https://images.unsplash.com/photo-1680404005217-a441afdefe83?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=300&q=80'),
+('Fanta', '400ml Cold Bottle', 40.00, 'Beverages', 'https://images.unsplash.com/photo-1624517452488-04869289c4ca?q=80&w=503&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Mineral Water', '1L Kinley', 20.00, 'Beverages', 'https://images.unsplash.com/photo-1638688569176-5b6db19f9d2a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Fresh Lime Soda', 'Sweet & Tangy', 50.00, 'Beverages', 'https://plus.unsplash.com/premium_photo-1661510500212-e3d96478a574?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Mango Lassi', 'Traditional Yogurt Drink', 60.00, 'Beverages', 'https://images.unsplash.com/photo-1546173159-315724a31696?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
 -- Additional Coffee & Drinks
 ('Espresso', 'Single Shot', 70.00, 'Coffee & Drinks', 'https://unsplash.com/photos/selective-focus-photography-of-latte-in-teacup-jn-HaGWe4yw?w=300&q=80'),
 ('Cappuccino', 'Espresso with Steamed Milk', 100.00, 'Coffee & Drinks', 'https://unsplash.com/photos/white-ceramic-cup-with-latte-cafe-art-on-desk-JpQGEArmG0I?w=300&q=80'),
@@ -105,16 +105,16 @@ INSERT INTO foods (name, description, price, category, image_url) VALUES
 ('Green Tea', 'Organic Herbal', 50.00, 'Coffee & Drinks', 'https://unsplash.com/photos/clear-glass-mug-with-green-leaves-9T5FvfnmH_k?w=300&q=80'),
 ('Hot Chocolate', 'Rich Cocoa Drink', 90.00, 'Coffee & Drinks', 'https://unsplash.com/photos/photo-of-mug-with-hot-choco-RtHw0PWCLhw?w=300&q=80'),
 -- Additional Snacks
-('French Fries', 'Crispy Salted Fries', 80.00, 'Snacks', 'https://unsplash.com/photos/potato-fries-and-sliced-potato-on-white-ceramic-plate-H2RzlOijhlQ?w=300&q=80'),
-('Veg Burger', 'Classic Veg Patty', 100.00, 'Snacks', 'https://unsplash.com/photos/selective-focus-photography-of-burger-on-top-of-table-rbcvIrxw6KA?w=300&q=80'),
-('Cheese Burger', 'Double Cheese Patty', 130.00, 'Snacks', 'https://unsplash.com/photos/a-stack-of-hamburgers-sitting-next-to-a-pile-of-fries-Tu2I04j4Alw?w=300&q=80'),
-('Veg Momos', 'Steamed Dumplings (8pcs)', 90.00, 'Snacks', 'https://unsplash.com/photos/a-white-plate-topped-with-dumplings-covered-in-sauce-ew_iyRmIpxw?w=300&q=80'),
-('Chicken Momos', 'Steamed Dumplings (8pcs)', 120.00, 'Snacks', 'https://unsplash.com/photos/a-white-plate-topped-with-dumplings-next-to-a-cup-of-sauce-90SXZzJpySc?w=300&q=80'),
-('Garlic Bread', 'Toasted with Butter', 70.00, 'Snacks', 'https://unsplash.com/photos/ginger-bread-on-brown-baskets-BRMvT4sw-4c?w=300&q=80'),
-('Nachos', 'Tortilla Chips with Salsa', 100.00, 'Snacks', 'https://unsplash.com/photos/nachos-on-oval-tray-WjBp05j8LXI?w=300&q=80'),
-('Spring Rolls', 'Crispy Veg Rolls', 90.00, 'Snacks', 'https://unsplash.com/photos/a-plate-of-food-on-a-table-next-to-a-glass-of-orange-juice-VeK39ynd3Ac?w=300&q=80'),
-('Pasta', 'Italian White Sauce', 150.00, 'Snacks', 'https://unsplash.com/photos/potato-fries-on-white-ceramic-plate-flFd8L7_B3g?w=300&q=80'),
-('Chicken Pasta', 'Creamy Alfredo', 180.00, 'Snacks', 'https://unsplash.com/photos/a-white-plate-topped-with-pasta-and-sauce-Irmhzq1icko?w=300&q=80'),
+('French Fries', 'Crispy Salted Fries', 80.00, 'Snacks', 'https://images.unsplash.com/photo-1585109649139-366815a0d713?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZnJlbmNoJTIwZnJpZXN8ZW58MHx8MHx8fDA%3D?w=300&q=80'),
+('Veg Burger', 'Classic Veg Patty', 100.00, 'Snacks', 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwYnVyZ2VyfGVufDB8fDB8fHww?w=300&q=80'),
+('Cheese Burger', 'Double Cheese Patty', 130.00, 'Snacks', 'https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hlZXNlJTIwYnVyZ2VyfGVufDB8fDB8fHww?w=300&q=80'),
+('Veg Momos', 'Steamed Dumplings (8pcs)', 90.00, 'Snacks', 'https://media.istockphoto.com/id/1748107051/photo/veg-steamed-momo-nepalese-traditional-dish-momo-stuffed-with-vegetables-and-then-cooked-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=zs9jYhHHgYAkqHFFOxWxCLG5Pn_N_2u6ap5IFoTYr4s=?w=300&q=80'),
+('Chicken Momos', 'Steamed Dumplings (8pcs)', 120.00, 'Snacks', 'https://images.unsplash.com/photo-1738608084602-f9543952188e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hpY2tlbiUyMG1vbW9zfGVufDB8fDB8fHww?w=300&q=80'),
+('Garlic Bread', 'Toasted with Butter', 70.00, 'Snacks', 'https://images.unsplash.com/photo-1573140401552-3fab0b24306f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FybGljJTIwYnJlYWR8ZW58MHx8MHx8fDA%3D?w=300&q=80'),
+('Nachos', 'Tortilla Chips with Salsa', 100.00, 'Snacks', 'https://plus.unsplash.com/premium_photo-1680118670547-0746d4101cbd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bmFjaG9zfGVufDB8fDB8fHww?w=300&q=80'),
+('Spring Rolls', 'Crispy Veg Rolls', 90.00, 'Snacks', 'https://images.unsplash.com/photo-1679310290259-78d9eaa32700?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3ByaW5nJTIwcm9sbHxlbnwwfHwwfHx8MA%3D%3D?w=300&q=80'),
+('Pasta', 'Italian White Sauce', 150.00, 'Snacks', 'https://images.unsplash.com/photo-1573821201069-dbf297ca410a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBzYXVjZSUyMHBhc3RhfGVufDB8fDB8fHww?w=300&q=80'),
+('Chicken Pasta', 'Creamy Alfredo', 180.00, 'Snacks', 'https://images.unsplash.com/photo-1612152328178-4a6c83d96429?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMHBhc3RhfGVufDB8fDB8fHww?w=300&q=80'),
 -- Desserts
 ('Chocolate Brownie', 'Warm with Ice Cream', 120.00, 'Desserts', 'https://unsplash.com/photos/chocolate-cake-on-white-ceramic-plate-TIctev58ij8?w=300&q=80'),
 ('Gulab Jamun', 'Traditional Sweet (3pcs)', 60.00, 'Desserts', 'https://unsplash.com/photos/a-plate-of-food-2oJ4eGRPqrE?w=300&q=80'),
@@ -122,13 +122,13 @@ INSERT INTO foods (name, description, price, category, image_url) VALUES
 ('Choco Lava Cake', 'Molten Chocolate Cake', 110.00, 'Desserts', 'https://unsplash.com/photos/chocolate-cake-on-white-ceramic-plate-Pzjez86SsvQ?w=300&q=80'),
 ('Fruit Salad', 'Fresh Seasonal Fruits', 80.00, 'Desserts', 'https://unsplash.com/photos/a-plate-of-food-2cXZQ862gws?w=300&q=80'),
 -- Meals
-('Veg Thali', 'Complete Indian Meal', 180.00, 'Meals', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&q=80'),
-('Chicken Biryani', 'Hyderabadi Style', 200.00, 'Meals', 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&q=80'),
-('Veg Fried Rice', 'Indo-Chinese Style', 140.00, 'Meals', 'https://images.unsplash.com/photo-1603133832894-0267195e09b5?w=300&q=80'),
-('Egg Fried Rice', 'With Scrambled Eggs', 150.00, 'Meals', 'https://images.unsplash.com/photo-1603133832894-0267195e09b5?w=300&q=80'),
-('Chicken Fried Rice', 'Classic Chinese', 170.00, 'Meals', 'https://images.unsplash.com/photo-1603133832894-0267195e09b5?w=300&q=80'),
-('Paneer Butter Masala', 'With Naan', 180.00, 'Meals', 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=300&q=80'),
-('Butter Chicken', 'With Naan', 200.00, 'Meals', 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=300&q=80');
+('Veg Thali', 'Complete Indian Meal', 180.00, 'Meals', 'https://images.unsplash.com/photo-1742281258189-3b933879867a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwdGhhbGl8ZW58MHx8MHx8fDA%3D?w=300&q=80'),
+('Chicken Biryani', 'Hyderabadi Style', 200.00, 'Biryani', 'https://images.unsplash.com/photo-1697155406055-2db32d47ca07?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMGJpcnlhbmklMjAlNUN8ZW58MHx8MHx8fDA%3D?w=300&q=80'),
+('Veg Fried Rice', 'Indo-Chinese Style', 140.00, 'Meals', 'https://images.unsplash.com/photo-1664717698774-84f62382613b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwZnJpZWQlMjByaWNlfGVufDB8fDB8fHww?w=300&q=80'),
+('Egg Fried Rice', 'With Scrambled Eggs', 150.00, 'Meals', 'https://images.unsplash.com/photo-1687020836451-41977907509e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWdnJTIwZnJpZWQlMjByaWNlfGVufDB8fDB8fHww?w=300&q=80'),
+('Chicken Fried Rice', 'Classic Chinese', 170.00, 'Meals', 'https://images.unsplash.com/photo-1679735386220-e8888925676e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hpY2tlbiUyMGZyaWVkJTIwcmljZXxlbnwwfHwwfHx8MA%3D%3D?w=300&q=80'),
+('Paneer Butter Masala', 'With Naan', 180.00, 'Meals', 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFuZWVyJTIwYnV0dGVyJTIwbWFzYWxhfGVufDB8fDB8fHww?w=300&q=80'),
+('Butter Chicken', 'With Naan', 200.00, 'Meals', 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnV0dGVyJTIwY2hpY2tlbnxlbnwwfHwwfHx8MA%3D%3D?w=300&q=80');
 
 -- Initial Stock Levels
 INSERT INTO stock (food_id, quantity) VALUES

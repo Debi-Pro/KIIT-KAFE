@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<base href="/KIIT-KAFE/">
+<?php
+  $baseHref = '/' . basename(dirname(__DIR__)) . '/';
+  echo "<base href=\"$baseHref\">";
+?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIIT KAFE — Campus 25</title>
