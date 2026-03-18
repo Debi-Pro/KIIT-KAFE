@@ -124,7 +124,9 @@ img{max-width:100%;}
    PAGE 1 — LANDING (NEW DESIGN)
 ═══════════════════════════════════════════ */
 #page-landing {
-    background: transparent;
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
     color: #f2ece0;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
@@ -156,6 +158,7 @@ img{max-width:100%;}
     width: 100%;
     height: 100%;
     z-index: 0;
+    pointer-events: none;
 }
 
 #page-landing nav {
@@ -233,7 +236,7 @@ img{max-width:100%;}
 }
 
 #page-landing .hero {
-    background: none; /* Override existing */
+    background: none !important; /* Override existing */
     position: relative;
     z-index: 10;
     min-height: 100vh;
@@ -313,7 +316,7 @@ img{max-width:100%;}
 
 #page-landing .scroll-hint {
     position: absolute;
-    bottom: 36px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -493,7 +496,6 @@ img{max-width:100%;}
 /* ═══════════════════════════════════════════
    PAGE SYSTEM
 ═══════════════════════════════════════════ */
-#page-landing{background:var(--dark);}
 
 .hero{
   background:radial-gradient(ellipse at 50% 0%,#1a4a2e 0%,var(--dark) 70%);
@@ -1178,6 +1180,13 @@ img{max-width:100%;}
   font-size: 28px;
   transition: all 0.2s;
   border: 2px solid transparent;
+  overflow: hidden;
+}
+.cat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .cat-item.active .cat-img {
   border-color: var(--lime);

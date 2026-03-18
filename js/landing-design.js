@@ -4,11 +4,19 @@ let floaters = [], bgRings = [], geoPlanes = [], steamWisps = [];
 let mxN = 0, myN = 0; // Normalized mouse pos for parallax
 
 function initLandingDesign() {
-  // If already running, skip re-init to preserve state
-  if (landingRequestID) return;
-
   const canvas = document.getElementById("canvas3d");
-  if (!canvas) return;
+  if (!canvas) {
+    console.warn("Canvas3D not found, skipping init");
+    return;
+  }
+
+  // If already running, skip re-init to preserve state
+  if (landingRequestID) {
+    console.log("Landing design already running, skipping re-init");
+    return;
+  }
+
+  console.log("Initializing landing design...");
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -18,6 +26,38 @@ function initLandingDesign() {
   landingRenderer = renderer;
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  
+  // Handle WebGL context loss
+  canvas.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault();
+    console.warn("WebGL context lost, restarting...");
+    stopLandingDesign();
+    setTimeout(() => initLandingDesign(), 1000);
+  });
+  
+  canvas.addEventListener('webglcontextrestored', () => {
+    console.log("WebGL context restored");
+  });
+  
+  // Debug: observe canvas for style changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((m) => {
+      if (m.type === 'attributes' && m.attributeName === 'style') {
+        console.log("Canvas style changed!", canvas.style.cssText);
+      }
+    });
+  });
+  observer.observe(canvas, { attributes: true, attributeFilter: ['style', 'class'] });
+  canvas._observer = observer;
+  
+  // Log initial canvas state
+  console.log("Canvas initial state:", {
+    display: canvas.style.display,
+    visibility: canvas.style.visibility,
+    opacity: canvas.style.opacity,
+    rect: canvas.getBoundingClientRect(),
+    computed: getComputedStyle(canvas)
+  });
 
   const scene = new THREE.Scene();
   landingScene = scene;
@@ -345,7 +385,7 @@ function initLandingDesign() {
   const mVec = new THREE.Vector2();
   let hoveredItem = null;
 
-  function onMouseMove(e) {
+  onMouseMove = function(e) {
     mVec.x = (e.clientX / window.innerWidth) * 2 - 1;
     mVec.y = -(e.clientY / window.innerHeight) * 2 + 1;
     mxN = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -358,7 +398,7 @@ function initLandingDesign() {
     }
   }
 
-  function onClick() {
+  onClick = function() {
     if (hoveredItem) {
       const tooltip = document.getElementById("tooltip");
       if (tooltip) tooltip.style.fontWeight = "bold";
@@ -372,6 +412,16 @@ function initLandingDesign() {
 
   function animate(t) {
     landingRequestID = requestAnimationFrame(animate);
+    
+    // Debug: log first few frames
+    if (t < 100) {
+      console.log("Animating at time:", t, "canvas rect:", canvas.getBoundingClientRect());
+    }
+    
+    // Log if animation stops unexpectedly
+    if (t > 1000 && t % 60000 < 100) {
+      console.log("Animation still running at:", t);
+    }
 
     // Parallax
     camera.position.x += (mxN * 0.4 - camera.position.x) * 0.05;
@@ -422,18 +472,73 @@ function initLandingDesign() {
     }
 
     renderer.render(scene, camera);
+    
+    // Log first render
+    if (t < 50) {
+      console.log("Rendered frame at:", t);
+    }
   }
   animate(0);
 
-  window.addEventListener("resize", () => {
+  onResize = () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+  };
+  window.addEventListener("resize", onResize);
+  
+  console.log("Landing design initialized successfully");
 }
 
 function stopLandingDesign() {
-  if (landingRequestID) cancelAnimationFrame(landingRequestID);
-  landingRequestID = null;
-  // Further cleanup if necessary
+  console.log("Stopping landing design...");
+  if (landingRequestID) {
+    cancelAnimationFrame(landingRequestID);
+    landingRequestID = null;
+  }
+  
+  // Remove event listeners
+  if (onMouseMove) window.removeEventListener("mousemove", onMouseMove);
+  if (onClick) window.removeEventListener("click", onClick);
+  if (onResize) window.removeEventListener("resize", onResize);
+  
+  // Dispose Three.js resources
+  if (landingScene) {
+    landingScene.traverse((obj) => {
+      if (obj.geometry) obj.geometry.dispose();
+      if (obj.material) {
+        if (Array.isArray(obj.material)) {
+          obj.material.forEach(m => m.dispose());
+        } else {
+          obj.material.dispose();
+        }
+      }
+    });
+  }
+  
+  if (landingRenderer) {
+    landingRenderer.dispose();
+    landingRenderer = null;
+  }
+  
+  landingScene = null;
+  landingCamera = null;
+  floaters = [];
+  bgRings = [];
+  geoPlanes = [];
+  steamWisps = [];
 }
+
+// Store event handlers for removal
+let onMouseMove = null, onClick = null, onResize = null;
+
+// Auto-initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM loaded, initialPage:", window.initialPage);
+  // Only init if we're on landing page
+  const startPage = window.initialPage || 'landing';
+  if (startPage === 'landing' || startPage === 'auth') {
+    console.log("Auto-initializing landing design for page:", startPage);
+    initLandingDesign();
+  }
+});

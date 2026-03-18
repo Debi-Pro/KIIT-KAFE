@@ -8,7 +8,8 @@ function renderMenu() {
     CATS.forEach(c => {
       const d = document.createElement('div');
       d.className = 'cat-item' + (c === activeCategory ? ' active' : '');
-      d.innerHTML = `<div class="cat-img">${CAT_EMOJI[c]||'🍽'}</div><div class="cat-label">${c}</div>`;
+      const imgUrl = CAT_IMAGES[c] || CAT_IMAGES['All'];
+      d.innerHTML = `<div class="cat-img"><img src="${imgUrl}" alt="${c}" loading="lazy"></div><div class="cat-label">${c}</div>`;
       d.onclick = () => {
         document.querySelectorAll('.cat-item').forEach(x => x.classList.remove('active'));
         d.classList.add('active');

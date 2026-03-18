@@ -4,7 +4,15 @@
 let MENU = [];
 
 const CATS = ['All','Beverages','Wafers','Snacks','Coffee & Drinks','Hot Dogs','Biryani'];
-const CAT_EMOJI = {All:'🌟',Beverages:'🥤',Wafers:'🍪',Snacks:'🍟','Coffee & Drinks':'☕','Hot Dogs':'🌭',Biryani:'🍛'};
+const CAT_IMAGES = {
+  All: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=150&h=150&fit=crop&q=80',
+  Beverages: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=150&h=150&fit=crop&q=80',
+  Wafers: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=150&h=150&fit=crop&q=80',
+  Snacks: 'https://images.unsplash.com/photo-1621236378699-8597faf6a176?w=150&h=150&fit=crop&q=80',
+  'Coffee & Drinks': 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=150&h=150&fit=crop&q=80',
+  'Hot Dogs': 'https://images.unsplash.com/photo-1612392062631-9dda2e44b5f5?w=150&h=150&fit=crop&q=80',
+  Biryani: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=150&h=150&fit=crop&q=80'
+};
 
 let cart = [];
 let currentUser = null;
