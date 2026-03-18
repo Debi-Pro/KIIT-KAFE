@@ -82,13 +82,13 @@ CREATE TABLE order_items (
 -- Sample Food Data
 INSERT INTO foods (name, description, price, category, image_url) VALUES
 -- Original Items
-('Coca Cola', '400ml Cold Bottle', 40.00, 'Beverages', 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=300&q=80'),
-('Cold Coffee', 'Creamy Iced Coffee', 89.00, 'Coffee & Drinks', 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80'),
-('Matcha Latte', 'Organic Green Tea', 99.00, 'Coffee & Drinks', 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=300&q=80'),
-('Signature Cold Brew', '12-hour Steeped', 89.00, 'Coffee & Drinks', 'https://images.unsplash.com/photo-1481833761820-0509d3217039?w=300&q=80'),
-('Amul Cool', '200ml Pista/Badam', 30.00, 'Beverages', 'https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=300&q=80'),
-('Club Sandwich', 'Veg Grilled Sandwich', 120.00, 'Snacks', 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80'),
-('Pizza', '7-inch Cheese Pizza', 199.00, 'Snacks', 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&q=80'),
+('Coca Cola', '400ml Cold Bottle', 40.00, 'Beverages', 'https://unsplash.com/photos/coca-cola-can-on-white-plastic-pack-wQFmDhrvVSs?w=300&q=80'),
+('Cold Coffee', 'Creamy Iced Coffee', 89.00, 'Coffee & Drinks', 'https://unsplash.com/photos/clear-drinking-glass-02O1bXB_fgk?w=300&q=80'),
+('Matcha Latte', 'Organic Green Tea', 99.00, 'Coffee & Drinks', 'https://unsplash.com/photos/a-glass-of-green-tea-next-to-a-bowl-of-green-tea-9hkqJ0bg6rA?w=300&q=80'),
+('Signature Cold Brew', '12-hour Steeped', 89.00, 'Coffee & Drinks', 'https://unsplash.com/photos/iced-coffee-in-a-clear-plastic-cup-with-lid-jhHnKrpx1Nw?w=300&q=80'),
+('Amul Cool', '200ml Pista/Badam', 30.00, 'Beverages', 'https://unsplash.com/photos/three-cartons-of-amul-gold-condensed-milk-w7ddmMDzUaM?w=300&q=80'),
+('Club Sandwich', 'Veg Grilled Sandwich', 120.00, 'Snacks', 'https://unsplash.com/photos/a-white-plate-topped-with-a-cut-in-half-sandwich-and-fries-oBWEb-lAI60?w=300&q=80'),
+('Pizza', '7-inch Cheese Pizza', 199.00, 'Snacks', 'https://unsplash.com/photos/a-pizza-with-various-toppings-on-a-white-background-xiApbm9UV-4?w=300&q=80'),
 -- Additional Beverages
 ('Pepsi', '400ml Cold Bottle', 40.00, 'Beverages', 'https://images.unsplash.com/photo-1624517452488-04869289c4ca?w=300&q=80'),
 ('Sprite', '400ml Cold Bottle', 40.00, 'Beverages', 'https://images.unsplash.com/photo-1629203851122-3726ec73a02f?w=300&q=80'),
@@ -122,13 +122,13 @@ INSERT INTO foods (name, description, price, category, image_url) VALUES
 ('Choco Lava Cake', 'Molten Chocolate Cake', 110.00, 'Desserts', 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=300&q=80'),
 ('Fruit Salad', 'Fresh Seasonal Fruits', 80.00, 'Desserts', 'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=300&q=80'),
 -- Meals
-('Veg Thali', 'Complete Indian Meal', 180.00, 'Meals', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&q=80'),
-('Chicken Biryani', 'Hyderabadi Style', 200.00, 'Meals', 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&q=80'),
-('Veg Fried Rice', 'Indo-Chinese Style', 140.00, 'Meals', 'https://images.unsplash.com/photo-1603133832894-0267195e09b5?w=300&q=80'),
-('Egg Fried Rice', 'With Scrambled Eggs', 150.00, 'Meals', 'https://images.unsplash.com/photo-1603133832894-0267195e09b5?w=300&q=80'),
-('Chicken Fried Rice', 'Classic Chinese', 170.00, 'Meals', 'https://images.unsplash.com/photo-1603133832894-0267195e09b5?w=300&q=80'),
-('Paneer Butter Masala', 'With Naan', 180.00, 'Meals', 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=300&q=80'),
-('Butter Chicken', 'With Naan', 200.00, 'Meals', 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=300&q=80');
+('Veg Thali', 'Complete Indian Meal', 180.00, 'Meals', 'https://unsplash.com/photos/a-plate-of-food-on-a-table-with-flowers-BTPitM55gMw?w=300&q=80'),
+('Chicken Biryani', 'Hyderabadi Style', 200.00, 'Biryani', 'https://unsplash.com/photos/cooked-food-on-white-ceramic-plate-0j4bisyPo3M?w=300&q=80'),
+('Veg Fried Rice', 'Indo-Chinese Style', 140.00, 'Meals', 'https://unsplash.com/photos/a-white-bowl-filled-with-rice-and-vegetables-_BvBZkUa1HU?w=300&q=80'),
+('Egg Fried Rice', 'With Scrambled Eggs', 150.00, 'Meals', 'https://unsplash.com/photos/a-white-plate-topped-with-rice-covered-in-toppings-ialHG4B-7x0?w=300&q=80'),
+('Chicken Fried Rice', 'Classic Chinese', 170.00, 'Meals', 'https://unsplash.com/photos/three-bowls-filled-with-rice-and-meat-on-top-of-a-table-XaFM0Bw69Fc?w=300&q=80'),
+('Paneer Butter Masala', 'With Naan', 180.00, 'Meals', 'https://unsplash.com/photos/a-metal-bowl-filled-with-food-next-to-a-bowl-of-rice-vgTntT8PmIM?w=300&q=80'),
+('Butter Chicken', 'With Naan', 200.00, 'Meals', 'https://unsplash.com/photos/brown-and-green-dish-on-brown-wooden-bowl-sqcH2q7lkvo?w=300&q=80');
 
 -- Initial Stock Levels
 INSERT INTO stock (food_id, quantity) VALUES
