@@ -116,11 +116,11 @@ INSERT INTO foods (name, description, price, category, image_url) VALUES
 ('Pasta', 'Italian White Sauce', 150.00, 'Snacks', 'https://images.unsplash.com/photo-1573821201069-dbf297ca410a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBzYXVjZSUyMHBhc3RhfGVufDB8fDB8fHww?w=300&q=80'),
 ('Chicken Pasta', 'Creamy Alfredo', 180.00, 'Snacks', 'https://images.unsplash.com/photo-1612152328178-4a6c83d96429?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMHBhc3RhfGVufDB8fDB8fHww?w=300&q=80'),
 -- Desserts
-('Chocolate Brownie', 'Warm with Ice Cream', 120.00, 'Desserts', 'https://images.unsplash.com/photo-1606313564200-e75d5e30476d?w=300&q=80'),
-('Gulab Jamun', 'Traditional Sweet (3pcs)', 60.00, 'Desserts', 'https://images.unsplash.com/photo-1593251445173-168940875873?w=300&q=80'),
-('Ice Cream Sundae', 'Chocolate/Strawberry', 100.00, 'Desserts', 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&q=80'),
-('Choco Lava Cake', 'Molten Chocolate Cake', 110.00, 'Desserts', 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=300&q=80'),
-('Fruit Salad', 'Fresh Seasonal Fruits', 80.00, 'Desserts', 'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=300&q=80'),
+('Chocolate Brownie', 'Warm with Ice Cream', 120.00, 'Desserts', 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Gulab Jamun', 'Traditional Sweet (3pcs)', 60.00, 'Desserts', 'https://images.unsplash.com/photo-1695568180070-8b5acead5cf4?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Ice Cream Sundae', 'Chocolate/Strawberry', 100.00, 'Desserts', 'https://images.unsplash.com/photo-1657225953401-5f95007fc8e0?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Choco Lava Cake', 'Molten Chocolate Cake', 110.00, 'Desserts', 'https://images.unsplash.com/photo-1663100143548-1555dcfd62b7?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
+('Fruit Salad', 'Fresh Seasonal Fruits', 80.00, 'Desserts', 'https://plus.unsplash.com/premium_photo-1664478279991-832059d65835?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300&q=80'),
 -- Meals
 ('Veg Thali', 'Complete Indian Meal', 180.00, 'Meals', 'https://images.unsplash.com/photo-1742281258189-3b933879867a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwdGhhbGl8ZW58MHx8MHx8fDA%3D?w=300&q=80'),
 ('Chicken Biryani', 'Hyderabadi Style', 200.00, 'Biryani', 'https://images.unsplash.com/photo-1697155406055-2db32d47ca07?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMGJpcnlhbmklMjAlNUN8ZW58MHx8MHx8fDA%3D?w=300&q=80'),
